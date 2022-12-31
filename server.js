@@ -7,8 +7,8 @@ const server = http.createServer((req,res)=>{
     res.end(JSON.stringify("HELLO FROM TWOPEER SERVER"))
 })
 
-server.listen(5000, () => {
-    console.log("Listening on port 5000")
+server.listen(process.env.PORT, (PORT) => {
+    console.log(`Listening on port ${PORT}`)
 })
 
 const websocket = new socket({httpServer:server})
