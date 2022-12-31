@@ -2,7 +2,9 @@ const socket = require("websocket").server
 const http = require("http")
 
 const server = http.createServer((req,res)=>{
-
+    if(req.url=='/test' && req.method=="GET")
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify("HELLO FROM TWOPEER SERVER"))
 })
 
 server.listen(5000, () => {
